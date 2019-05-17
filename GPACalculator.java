@@ -16,7 +16,7 @@ public class GPACalculator {
         
         for (int min = 1; i >= min; min++){
             String numberConversion = new String();
-            
+
             //Conversion of integers to strings
             switch (min){
                 case 1:
@@ -87,17 +87,21 @@ public class GPACalculator {
             //totalGradePoints and totalHours are compiled into two respective arrays
             grades[min-1] = totalGradePoints;
             totalHours[min-1] = hours;
-            
             //Product is calculated by multiplying each respective index number to produce another array
             product[min-1] = grades[min-1] * totalHours[min-1];
-        }
-        //All the indexes of product array are added together to produce a sum variable
-        for (double num1 : product){
-            sum = sum+num1;
-        }
-        //All the indexes of totalHours array are added together to produce a sumHours variable
-        for (int num2 : totalHours){
-            sumHours = sumHours+num2;
+            
+            //All the indexes of product array are added together to produce a sum variable
+            for (double num1 : product){
+                sum = sum+num1;
+            }
+            //All the indexes of totalHours array are added together to produce a sumHours variable
+            for (int num2 : totalHours){
+                sumHours = sumHours+num2;
+            }
+            //Tells the user what the GPA is of the courses they have entered in so far
+            if (i > min){
+                System.out.printf("GPA So Far: " + "%.3f\n", sum/sumHours);
+            }
         }
         //The final GPA is calculuated and printed out for the user
         System.out.printf("Final GPA: " + "%.3f\n", sum/sumHours);
